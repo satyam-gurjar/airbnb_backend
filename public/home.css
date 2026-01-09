@@ -1,0 +1,35 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header{
+  height: 200px;
+  width: 100vw;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main{
+
+    height: 200px;
+  width: 100vw;
+  background-color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a{
+  height: 50px;
+  width: 100px;
+  background-color: white;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 15px;
+}
+
+
