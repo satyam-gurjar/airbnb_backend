@@ -6,9 +6,11 @@ const path = require('path');
 const express = require('express');
 const userRouter = express.Router();
 
+//Local modules
+const rootDir = require('../utils/pathUtil')
 
 userRouter.get("/",(req,res,next) => {
- res.sendFile(path.join__dirname,"../","views",'home.html')
+ res.sendFile(path.join(rootDir,'views','home.html'))
 }) 
 
 
