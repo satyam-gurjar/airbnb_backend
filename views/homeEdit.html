@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Added succefully</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Added Successfully</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/output.css">
 </head>
-<body>
-  <header>
-    <h1>Home Registered succefully</h1>
-  </header>
-  <main>
-    <a href="/">Go to Home</a>
-  </main>
-  
+
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white rounded-xl shadow-lg p-10 max-w-md w-full text-center">
+
+    <!-- Success Icon -->
+    <div class="flex justify-center mb-6">
+      <div class="bg-green-100 text-green-600 rounded-full p-4">
+        ✓
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-2xl font-bold text-gray-800 mb-3">
+      Home Registered Successfully
+    </h1>
+
+    <!-- Message -->
+    <p class="text-gray-500 mb-8">
+      Your home has been added to Airbnb listings.
+    </p>
+
+    <!-- Button -->
+    <a
+      href="/"
+      class="inline-block bg-red-500 text-white px-6 py-3 rounded-lg
+             font-semibold hover:bg-red-600 transition shadow-md"
+    >
+      Go to Home
+    </a>
+
+  </div>
+
 </body>
 </html>

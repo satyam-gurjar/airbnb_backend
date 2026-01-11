@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/output.css">
 </head>
-<body>
-  <header><h1 style="display:flex,; justify-content:center; align-items:center;"> 404 Your page not found on airbnb</h1>
-  </header>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+
+  <div class="text-center p-6">
+    <!-- 404 Code -->
+    <h1 class="text-6xl font-extrabold text-red-500 mb-4">
+      404
+    </h1>
+
+    <!-- Message -->
+    <p class="text-gray-600 text-lg mb-6">
+      Oops! Your page was not found on Airbnb.
+    </p>
+
+    <!-- Home Button -->
+    <a
+      href="/"
+      class="bg-red-500 text-white font-semibold px-6 py-3 rounded-lg
+             hover:bg-red-600 transition shadow-md"
+    >
+      Go Back Home
+    </a>
+  </div>
+
 </body>
 </html>

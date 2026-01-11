@@ -1,19 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Home to aribnb</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Home to Airbnb</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/output.css">
 </head>
-<body>
-  <header>
-     <h1>Register your home here<h1>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <div class="max-w-4xl mx-auto px-6 py-4">
+      <h1 class="text-2xl font-bold text-red-500 text-center">
+        Register Your Home
+      </h1>
+    </div>
   </header>
-  <main>
-    <form action="/host/add-home" method="POST">
-      <input type="text" name="houseName" placeholder="Enter the name of your house" />
-      <input type="submit"/>
-    </form>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center px-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+
+      <form
+        action="/host/add-home"
+        method="POST"
+        class="space-y-6"
+      >
+        <!-- Input -->
+        <div>
+          <label class="block text-gray-600 font-medium mb-2">
+            House Name
+          </label>
+          <input
+            type="text"
+            name="houseName"
+            placeholder="Enter the name of your house"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none focus:ring-2 focus:ring-red-400"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-red-500 text-white font-semibold py-3 rounded-lg
+                 hover:bg-red-600 transition shadow-md"
+        >
+          Add Home
+        </button>
+      </form>
+
+    </div>
   </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-4">
+    © 2026 Airbnb Clone
+  </footer>
+
 </body>
 </html>

@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>airbnb Home</title>
-  <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airbnb Home</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/output.css">
 </head>
-<body>
-  <header>
-     <h1> Welcome to airbnb </h1>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-red-500">
+        Airbnb
+      </h1>
+      <nav class="space-x-6 text-gray-600 font-medium">
+        <a href="#" class="hover:text-red-500 transition">Home</a>
+        <a href="#" class="hover:text-red-500 transition">About</a>
+        <a href="#" class="hover:text-red-500 transition">Contact</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <a href="/host/add-home">Add Home</a>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center px-4">
+    <div class="bg-white p-10 rounded-xl shadow-lg text-center max-w-md w-full">
+
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">
+        Welcome to Airbnb
+      </h2>
+
+      <p class="text-gray-500 mb-8">
+        Host your home and earn money by sharing your space.
+      </p>
+
+      <a
+        href="/host/add-home"
+        class="inline-block bg-red-500 text-white font-semibold px-8 py-3 rounded-lg
+               hover:bg-red-600 active:scale-95 transition transform shadow-md"
+      >
+        Add Your Home
+      </a>
+    </div>
   </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center text-sm text-gray-500 py-4">
+    © 2026 Airbnb Clone • Built with Tailwind CSS
+  </footer>
+
 </body>
 </html>

@@ -6,7 +6,7 @@ const express = require('express');
 
 // local module
 const userRouter = require('./routes/userRouter');
-const hostRouter = require('./routes/hostRouter');
+const {hostRouter} = require('./routes/hostRouter');
 const rootDir = require('./utils/pathUtil');
 
 
