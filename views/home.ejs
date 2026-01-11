@@ -1,18 +1,17 @@
 <%- include('partials/head') %>
 </head>
 
-
-
 <body class="bg-gray-50 min-h-screen flex flex-col font-sans">
 
-
+  <!-- Navbar -->
   <%- include('partials/nav') %>
-  <!-- Main -->
+
+  <!-- Main Content -->
   <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
 
     <!-- Heading -->
     <div class="text-center mb-10">
-      <h2 class="text-4xl font-bold text-gray-800 mb-2">
+      <h2 class="text-4xl font-bold text-red-500 mb-2">
         Registered Homes
       </h2>
       <p class="text-gray-500">
@@ -20,28 +19,68 @@
       </p>
     </div>
 
-    <!-- Homes List -->
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <% if (registeredHomes.length === 0) { %>
-        <div class="col-span-full text-center text-gray-500 text-lg">
-          No homes registered yet 🏡  
-          <br />
-          Be the first host!
-        </div>
-      <% } %>
+    <!-- Homes Section -->
+    <% if (registeredHomes.length === 0) { %>
+      <div class="text-center text-gray-500 text-lg">
+        No homes registered yet 🏡 <br />
+        Be the first host!
+      </div>
+    <% } else { %>
 
-      <% registeredHomes.forEach(home => { %>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-6">
-          <div class="text-2xl mb-3">🏠</div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">
-            <%= home.houseName %>
-          </h3>
-          <p class="text-gray-500 text-sm">
-            A beautiful place to stay with comfort and care.
-          </p>
-        </div>
-      <% }) %>
-    </div>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+        <% registeredHomes.forEach(home => { %>
+
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+
+            <!-- Image -->
+            <img 
+              src="<%= home.PhotoURL %>" 
+              alt="<%= home.houseName %>" 
+              class="h-48 w-full object-cover"
+            />
+
+            <!-- Card Content -->
+            <div class="p-5">
+
+              <!-- Title & Rating -->
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold text-gray-800">
+                  <%= home.houseName %>
+                </h3>
+
+                <span class="flex items-center text-sm font-medium text-gray-700">
+                  ⭐ <%= home.Rating %>
+                </span>
+              </div>
+
+              <!-- Location -->
+              <p class="text-gray-500 text-sm mb-4">
+                📍 <%= home.location %>
+              </p>
+
+              <!-- Price & Button -->
+              <div class="flex justify-between items-center">
+                <p class="text-lg font-bold text-gray-900">
+                  ₹<%= home.price %>
+                  <span class="text-sm text-red-500">/ night</span>
+                </p>
+
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm
+                         hover:bg-red-600 transition active:scale-95">
+                  View
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
 
     <!-- CTA -->
     <div class="text-center mt-14">
