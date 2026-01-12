@@ -1,7 +1,12 @@
-const registeredHomes = [];
+const fs = require('fs');
+const path = require('path');
+const rootDir = require('../utils/pathUtil')
 
-module.exports = class Home{
-  constructor(houseName,price,location,Rating,PhotoURL){
+
+
+
+module.exports = class Home {
+  constructor(houseName, price, location, Rating, PhotoURL) {
 
     this.houseName = houseName;
     this.price = price;
@@ -9,15 +14,30 @@ module.exports = class Home{
     this.Rating = Rating;
     this.PhotoURL = PhotoURL;
   };
-  
+
 
   save() {
-  registeredHomes.push(this);
+    Home.fetchAll((registeredHomes) => {
+      registeredHomes.push(this);
+
+      const homeDataPath = path.join(rootDir, 'Data', 'homes.json');
+      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), error => {
+        console.log("file error :", error);
+      });
+
+    })
   };
 
 
-  static fetchAll() {
-    return registeredHomes;
+
+  static fetchAll(callback) {
+    const homeDataPath = path.join(rootDir, 'Data', 'homes.json');
+
+    fs.readFile(homeDataPath, (err, data) => {
+      console.log('file read: ', err, data);
+      callback(!err ? JSON.parse(data) : []);
+    });
+
   }
 
 };
