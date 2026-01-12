@@ -1,1 +1,44 @@
-[{"houseName":"satyam homes","price":"899","location":"bhopal","Rating":"5","PhotoURL":"https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"},{"houseName":"ss","price":"555","location":"jaypur","Rating":"4.5","PhotoURL":"https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"}]
+[
+  {
+    "houseName": "satyam homes",
+    "price": "899",
+    "location": "bhopal",
+    "Rating": "5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  },
+  {
+    "houseName": "ss",
+    "price": "555",
+    "location": "jaypur",
+    "Rating": "4.5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  },
+  {
+    "houseName": "satyam homes",
+    "price": "899",
+    "location": "bhopal",
+    "Rating": "5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  },
+  {
+    "houseName": "ss",
+    "price": "555",
+    "location": "jaypur",
+    "Rating": "4.5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  },
+  {
+    "houseName": "satyam homes",
+    "price": "899",
+    "location": "bhopal",
+    "Rating": "5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  },
+  {
+    "houseName": "ss",
+    "price": "555",
+    "location": "jaypur",
+    "Rating": "4.5",
+    "PhotoURL": "https://imgs.search.brave.com/Zz1I_GmcSoM-oU2oSRoicbCjRGYv-F19aVFu0FOzN7M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvdGhpcnV2YW5h/bnRoYXB1cmFtL3oy/LzA0NzFweDQ3MS54/NDcxLjI0MDMzMDE4/NDIyNS5zMnoyL2Nh/dGFsb2d1ZS9ibmIt/aG9tZXMta3VsYXRo/b29yLXRoaXJ1dmFu/YW50aGFwdXJhbS1i/ZWQtYW5kLWJyZWFr/ZmFzdC0yb2xtNHNk/a255LTI1MC5qcGc_/dz0zODQwJnE9NzU"
+  }
+]
