@@ -1,0 +1,93 @@
+<%- include('../partials/head') %>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+
+  <!-- Navbar -->
+  <%- include('../partials/nav') %>
+
+  <!-- Main -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-10 w-full">
+
+    <!-- Title -->
+    <div class="flex justify-between items-start mb-6">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-800">
+          <%= home.house_name %>
+        </h2>
+        <p class="text-gray-500 mt-1">
+          ⭐ <%= home.Rating %> · 📍 <%= home.location %>
+        </p>
+      </div>
+
+      <!-- Favourite Form -->
+       <%- include('../partials/favourite') %>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Left Section -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- Image -->
+        <div class="rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="<%= home.PhotoUrl %>"
+            alt="<%= home.house_name %>"
+            class="w-full h-[420px] object-cover"
+          />
+        </div>
+
+        <!-- Description -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">
+            About this home
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            Welcome to <span class="font-medium"><%= home.house_name %></span>,
+            located in <span class="font-medium"><%= home.location %></span>.
+            Enjoy comfort, safety, and a memorable stay.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Booking Card -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 h-fit sticky top-24">
+
+        <p class="text-2xl font-bold text-gray-900 mb-4">
+          ₹<%= home.price %>
+          <span class="text-base font-medium text-gray-500">/ night</span>
+        </p>
+
+        <div class="flex items-center text-gray-700 mb-4">
+          ⭐ <span class="ml-2 font-medium"><%= home.Rating %> rating</span>
+        </div>
+
+        <hr class="mb-4">
+
+        <button
+          class="w-full bg-red-500 text-white py-3 rounded-xl font-semibold
+                 hover:bg-red-600 transition active:scale-95"
+        >
+          Book Now
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-3">
+          You won’t be charged yet
+        </p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center text-sm text-gray-500 py-6">
+    © 2026 Airbnb Clone • Built with Express & Tailwind CSS
+  </footer>
+
+</body>
+</html>

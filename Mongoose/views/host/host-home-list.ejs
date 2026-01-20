@@ -1,0 +1,112 @@
+<%- include('../partials/head') %>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+
+  <!-- Navbar -->
+  <%- include('../partials/nav') %>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+
+    <!-- Heading -->
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-bold text-red-500 mb-2">
+        Hey Host! Here are Your Homes
+      </h2>
+      <p class="text-gray-500">
+        Discover homes hosted by our community
+      </p>
+    </div>
+
+    <!-- Homes Section -->
+    <% if (registeredHomes.length === 0) { %>
+      <div class="text-center text-gray-500 text-lg">
+        No homes registered yet 🏡 <br />
+        Be the first host!
+      </div>
+    <% } else { %>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+        <% registeredHomes.forEach(home => { %>
+
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+
+            <!-- Image -->
+            <img 
+              src="<%= home.PhotoUrl %>" 
+              alt="<%= home.house_name %>" 
+              class="h-48 w-full object-cover"
+            />
+
+            <!-- Card Content -->
+            <div class="p-5">
+
+              <!-- Title & Rating -->
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold text-gray-800">
+                  <%= home.house_name %>
+                </h3>
+
+                <span class="flex items-center text-sm font-medium text-gray-700">
+                  ⭐ <%= home.Rating %>
+                </span>
+              </div>
+
+              <!-- Location -->
+              <p class="text-gray-500 text-sm mb-4">
+                📍 <%= home.location %>
+              </p>
+
+              <!-- Price & Button -->
+              <div class="flex justify-between items-center">
+                <p class="text-lg font-bold text-gray-900">
+                  ₹<%= home.price %>
+                  <span class="text-sm text-red-500">/ night</span>
+                </p>
+
+                <a class="bg-blue-500 text-white ml-0.5 px-4 py-2 rounded-lg text-sm
+                         hover: bg-blue-600 transition active:scale-95" href="/host/edit-home/<%=home._id%>?editing=true">Edit</a>
+               
+               
+                <form action="/host/delete-home/<%= home._id %>" method="POST">
+                  <button
+                  type="submit"
+                  class="bg-red-500 text-white mr-0 px-4 py-2 rounded-lg text-sm
+                         hover:bg-red-600 transition active:scale-95">
+                   Delete
+                </button>
+                </form>
+              </div>
+
+
+            </div>
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
+
+    <!-- CTA -->
+    <div class="text-center mt-14">
+      <a
+        href="/host/add-home"
+        class="inline-block bg-red-500 text-white font-semibold px-10 py-4 rounded-full
+               hover:bg-red-600 active:scale-95 transition shadow-lg"
+      >
+        + Add Your Home
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center text-sm text-gray-500 py-6">
+    © 2026 Airbnb Clone • Built with Express & Tailwind CSS
+  </footer>
+
+</body>
+</html>
