@@ -1,10 +1,13 @@
+const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
-
+const User = require('../models/user')
 exports.getLogin = (req, res, next) => {
   res.render('auth/login', {
     pageTitle: 'Login',
     currentPage: 'login',
-    isLoggedIn: false
+    isLoggedIn: false,
+    errors: [],
+    oldInput: "",
   });
 }
 
@@ -12,85 +15,126 @@ exports.getSignUp = (req, res, next) => {
   res.render('auth/signup', {
     pageTitle: 'signup',
     currentPage: 'signup',
-    isLoggedIn: false
+    isLoggedIn: false,
+    errors: [],
+    oldInput: "",
   });
 }
 
-exports.postLogin = (req, res, next) => {
+exports.postLogin = async (req, res, next) => {
+  const {email, password} = req.body;
+  const user = await User.findOne({email});
+  if(!user){
+     return res.status(422).render('auth/login', {
+        pageTitle: 'Login',
+        currentPage: 'login',
+        isLoggedIn: false,
+        errors: ['user does not exist'],
+        oldInput: {email}
+      });
+  }
+  const isMatch = await bcrypt.compare(password, user.password);
+  if(!isMatch) {
+    return res.status(422).render('auth/login', {
+        pageTitle: 'Login',
+        currentPage: 'login',
+        isLoggedIn: false,
+        errors: ['Invalid Password'],
+        oldInput: {email}
+      });
+  }
   req.session.isLoggedIn = true;
-  // res.cookie("isLoggedIn", true)
+  req.session.user = user;
   res.redirect('/')
 }
 
-
-
 exports.postSignUp = [
 
-  check("username")
+  check("email")
     .isEmail()
-    .withMessage('Please enter a valid email')
+    .withMessage('please enter a valid email')
     .normalizeEmail(),
 
   check("password")
     .isLength({ min: 8 })
-    .withMessage('Password must be at least 8 characters long')
+    .withMessage('please should be at least 8 characters loong')
     .matches(/[A-Z]/)
-    .withMessage('Password must contain at least one uppercase letter')
+    .withMessage('password containt at least one uppercaseletter')
     .matches(/[a-z]/)
-    .withMessage('Password must contain at least one lowercase letter')
+    .withMessage('password containt at least one lowercase letter')
     .matches(/[0-9]/)
-    .withMessage('Password must contain at least one number')
+    .withMessage('password contiant at least one number')
     .matches(/[!@#$%^&*()]/)
-    .withMessage('Password must contain at least one special character')
+    .withMessage('password containt at least one special character')
     .trim(),
 
-  check("confirmPassword")
+  check('confirmPassword')
+    .trim()
     .custom((value, { req }) => {
       if (value !== req.body.password) {
-        throw new Error('Passwords do not match');
+        throw new Error('Password do not match');
       }
       return true;
     }),
 
-  check("usertype")
+  check("userType")
+    .notEmpty()
+    .withMessage('Please select a user type')
     .isIn(['guest', 'host'])
-    .withMessage('Please select a valid user type'),
+    .withMessage('Invalid user type'),
 
-  check("term")
-    .custom(value => {
+  check('term')
+    .notEmpty()
+    .withMessage('Please accept the term and conditions')
+    .custom((value, { req }) => {
       if (value !== 'on') {
-        throw new Error('Please accept the terms and conditions');
+        throw new Error('Please accept the term and condition')
       }
       return true;
     }),
+
 
   (req, res, next) => {
-    const { firstname, lastname, username, usertype } = req.body;
-
+    const { firstName, lastName, email, password, userType } = req.body;
     const errors = validationResult(req);
-
     if (!errors.isEmpty()) {
       return res.status(422).render('auth/signup', {
-        pageTitle: 'Signup',
+        pageTitle: 'signup',
         currentPage: 'signup',
         isLoggedIn: false,
-        errors: errors.array(),
-        oldInput: {
-          firstname,
-          lastname,
-          username,
-          usertype
-        }
-      });
+        errors: errors.array().map(err => err.msg),
+        oldInput: {firstName, lastName, email, password, userType}
+      })
     }
 
-    // SUCCESS
-    res.redirect('/');
+    bcrypt.hash(password, 12).then(hashedPassword => {
+      const user = new User({firstName,lastName,email, password:hashedPassword, userType});
+      return user.save();
+    })
+    .then(() => {
+      res.redirect('/login');
+    }).catch(err => {
+      return res.status(422).render("auth/signup",{
+        pageTitle: 'signup',
+        currentPage: 'signup',
+        isLoggedIn: false,
+        errors: errors.array().map(err => err.msg),
+        oldInput: {
+          firstName,
+          lastName,
+          email,
+          password,
+          userType
+        }
+      })
+    })
+
+   
   }
-];
+]
 
 
-exports.postLogout = (req,res,next) => {
+exports.postLogout = (req, res, next) => {
   req.session.destroy(() => {
     res.redirect('/login');
   })

@@ -15,30 +15,18 @@
           </h2>
 
           <form action="/signup" method="POST" class="space-y-4">
-            <!-- errors -->
-            <div>
-              <% if (typeof errors !=='undefined' && errors.length> 0) { %>
-                <div class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg mb-4">
-                  <strong class="block font-semibold mb-2">Error</strong>
-                  <ul class="list-disc list-inside space-y-1">
-                    <% errors.forEach(error=> { %>
-                      <li>
-                        <%= error.msg %>
-                      </li>
-                      <% }) %>
-                  </ul>
-                </div>
-                <% } %>
-
-            </div>
+            <%- include('../partials/errors') %>
             <!-- Name -->
             <div class="flex gap-3">
-              <input type="text" name="firstName" placeholder="First Name" required class="w-1/2 input-style" />
-              <input type="text" name="lastName" placeholder="Last Name" class="w-1/2 input-style" />
+              <input type="text" name="firstName" placeholder="First Name" required
+                value="<%= oldInput.firstName  ? oldInput.firstName : ''%>" class="w-1/2 input-style" />
+              <input type="text" name="lastName" placeholder="Last Name" class="w-1/2 input-style"
+                value="<%= oldInput.lastName  ? oldInput.lastName : ''%>" />
             </div>
 
             <!-- Email -->
-            <input type="email" name="email" placeholder="Email address" required class="w-full input-style" />
+            <input type="email" name="email" placeholder="Email address" required class="w-full input-style"
+              value="<%= oldInput.email  ? oldInput.email : ''%>" />
 
             <!-- Password -->
             <input type="password" name="password" placeholder="Password" required class="w-full input-style" />
@@ -51,11 +39,11 @@
               <p class="text-sm font-semibold text-gray-600 mb-2">Register as</p>
               <div class="flex gap-6">
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" name="usertype" value="guest" checked>
+                  <input type="radio" name="userType" value="guest" checked="<%= oldInput.userType === 'guest' %>">
                   <span>Guest</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" name="usertype" value="host">
+                  <input type="radio" name="userType" value="host" checked="<%= oldInput.userType === 'host' %>">
                   <span>Host</span>
                 </label>
               </div>

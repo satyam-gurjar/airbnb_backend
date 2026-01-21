@@ -10,16 +10,18 @@
         <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
 
           <form action="/login" method="POST" class="space-y-6">
+          
             <!-- Input -->
             <div>
               <label class="block text-black  font-extrabold text-2xl text-center mb-3">
                 LogIn
               </label>
-              <input type="text" name="username" placeholder="Email/username" required class="w-full border border-gray-300 rounded-lg px-4 py-2
+              <input type="email" name="email" placeholder="Enter Your Email" value="<%= oldInput.email ? oldInput.email : '' %>" required class="w-full border border-gray-300 rounded-lg px-4 py-2
                    focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400" />
               <input type="password" name="password" placeholder="Enter Password" required class="w-full border border-gray-300 rounded-lg px-4 py-2
                    focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400" />
-
+                <!-- errors -->
+             <%- include('../partials/errors') %>
             </div>
 
             <!-- Submit Button -->

@@ -1,0 +1,14 @@
+<!-- errors -->
+
+<% if (typeof errors !=='undefined' && errors.length> 0) { %>
+  <div class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg mb-4">
+    <strong class="block font-semibold mb-2">Error</strong>
+    <ul class="list-disc list-inside space-y-1">
+      <% errors.forEach(error=> { %>
+        <li>
+          <%= error%>
+        </li>
+        <% }) %>
+    </ul>
+  </div>
+  <% } %>
