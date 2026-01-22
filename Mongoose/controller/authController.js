@@ -43,9 +43,23 @@ exports.postLogin = async (req, res, next) => {
         oldInput: {email}
       });
   }
+  // Avoid storing mongoose document (with BSON types) in the session to prevent BSON version mismatch errors
   req.session.isLoggedIn = true;
-  req.session.user = user;
-  res.redirect('/')
+  req.session.user = {
+    id: user._id.toString(),
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    userType: user.userType
+  };
+
+  // Ensure session is saved before redirect
+  req.session.save((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
 }
 
 exports.postSignUp = [
