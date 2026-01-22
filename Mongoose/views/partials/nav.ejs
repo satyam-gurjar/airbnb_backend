@@ -48,13 +48,17 @@
         <% } else { %>
 
           <!-- Login -->
-          <a href="/login" class="<%= currentPage === 'login' ? 'text-red-500 font-semibold' : 'hover:text-red-500' %>">
+
+          <a href="/signup" class="px-4 py-2 rounded-xl border border-red-500 text-red-500
+   <%= currentPage === 'signup' ? 'font-semibold bg-red-100' : 'hover:bg-red-100' %>">
+            SignUp
+          </a>
+
+          <a href="/login" class="px-4 py-2 rounded-md bg-red-500 text-white
+   <%= currentPage === 'login' ? 'font-semibold' : 'hover:bg-red-600' %>">
             Login
           </a>
 
-          <a href="/signup" class="<%= currentPage === 'signup' ? 'text-red-500 font-semibold' : 'hover:text-red-500' %>">
-            SignUp
-          </a>
 
           <% } %>
 
