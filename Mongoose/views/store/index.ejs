@@ -31,46 +31,55 @@
 
         <% registeredHomes.forEach(home => { %>
 
-          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
 
             <!-- Image -->
-            <img 
-              src="<%= home.PhotoUrl %>" 
-              alt="<%= home.house_name %>" 
-              class="h-48 w-full object-cover"
-            />
+            <div class="relative overflow-hidden">
+              <img 
+                src="<%= home.PhotoUrl %>" 
+                alt="<%= home.house_name %>" 
+                class="h-56 w-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
 
             <!-- Card Content -->
             <div class="p-5">
 
               <!-- Title & Rating -->
-              <div class="flex justify-between items-center mb-2">
-                <h3 class="text-lg font-semibold text-gray-800">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-lg font-semibold text-gray-900 line-clamp-1 flex-1">
                   <%= home.house_name %>
                 </h3>
 
-                <span class="flex items-center text-sm font-medium text-gray-700">
-                  ⭐ <%= home.Rating %>
+                <span class="flex items-center gap-1 text-sm font-semibold ml-2 bg-yellow-50 px-2 py-1 rounded-lg">
+                  <span class="text-yellow-500">⭐</span>
+                  <span class="text-gray-800"><%= home.Rating %></span>
                 </span>
               </div>
 
               <!-- Location -->
-              <p class="text-gray-500 text-sm mb-4">
-                📍 <%= home.location %>
+              <p class="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+                <%= home.location %>
               </p>
 
               <!-- Price & Button -->
-              <div class="flex justify-between items-center">
-                <p class="text-lg font-bold text-gray-900">
-                  ₹<%= home.price %>
-                  <span class="text-sm text-red-500">/ night</span>
-                </p>
+              <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                <div>
+                  <p class="text-xl font-bold text-gray-900">
+                    ₹<%= home.price %>
+                  </p>
+                  <span class="text-xs text-gray-500">per night</span>
+                </div>
 
-                <button
-                  class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm
-                         hover:bg-red-600 transition active:scale-95">
-                   Book
-                </button>
+                <a
+                  href="/homes/<%= home._id %>"
+                  class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2.5 rounded-xl text-sm font-semibold
+                         hover:from-red-600 hover:to-pink-600 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg">
+                  View Details
+                </a>
               </div>
 
             </div>

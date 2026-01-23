@@ -36,7 +36,8 @@ app.use(session({
 }));
 
 app.use((req,res,next) => {
-  req.session.isLoggedIn = req.session.isLoggedIn;
+  req.session.isLoggedIn = req.session.isLoggedIn || false;
+  req.session.user = req.session.user || null;
   next();
 })
 
