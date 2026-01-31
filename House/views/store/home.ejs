@@ -1,0 +1,108 @@
+<%- include('../partials/head') %>
+  </head>
+
+  <body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+
+    <!-- Navbar -->
+    <%- include('../partials/nav') %>
+
+      <!-- Main Content -->
+      <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+
+        <!-- Heading -->
+        <div class="text-center mb-10">
+          <h2 class="text-4xl font-bold text-red-500 mb-2">
+            Registered Homes
+          </h2>
+          <p class="text-gray-500">
+            Discover homes hosted by our community
+          </p>
+        </div>
+
+        <!-- Homes Section -->
+        <% if (registeredHomes.length===0) { %>
+          <div class="text-center text-gray-500 text-lg">
+            No homes registered yet 🏡 <br />
+            Be the first host!
+          </div>
+          <% } else { %>
+
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+              <% registeredHomes.forEach(home=> { %>
+
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+
+                  <!-- Image with Overlay -->
+                  <div class="relative overflow-hidden">
+                    <img src="<%= home.PhotoUrl %>" alt="<%= home.house_name %>" class="h-56 w-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div class="absolute top-3 right-3">
+                      <%- include('../partials/favourite', {home: home}) %>
+                    </div>
+                  </div>
+
+                  <!-- Card Content -->
+                  <div class="p-5">
+
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                      <h3 class="text-lg font-semibold text-gray-900 line-clamp-1 flex-1">
+                        <%= home.house_name %>
+                      </h3>
+
+                      <span class="flex items-center gap-1 text-sm font-semibold ml-2 bg-yellow-50 px-2 py-1 rounded-lg">
+                        <span class="text-yellow-500">⭐</span>
+                        <span class="text-gray-800">
+                          <%= home.Rating %>
+                        </span>
+                      </span>
+
+                    </div>
+
+                    <!-- Location -->
+                    <p class="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                      </svg>
+                      <%= home.location %>
+                    </p>
+
+                    <!-- Price & Button -->
+                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
+                      <div>
+                        <p class="text-xl font-bold text-gray-900">
+                          ₹<%= home.price %>
+                        </p>
+                        <span class="text-xs text-gray-500">per night</span>
+                      </div>
+                      <a class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2.5 rounded-xl text-sm font-semibold
+                         hover:from-red-600 hover:to-pink-600 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg" href="/homes/<%= home._id %>">View Details</a>
+                    </div>
+
+                  </div>
+                </div>
+
+                <% }) %>
+
+            </div>
+
+            <% } %>
+
+              <!-- CTA -->
+              <div class="text-center mt-14">
+                <a href="/host/add-home" class="inline-block bg-red-500 text-white font-semibold px-10 py-4 rounded-full
+               hover:bg-red-600 active:scale-95 transition shadow-lg">
+                  + Add Your Home
+                </a>
+              </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t text-center text-sm text-gray-500 py-6">
+        © 2026 Airbnb Clone • Built with Express & Tailwind CSS
+      </footer>
+
+  </body>
+
+  </html>

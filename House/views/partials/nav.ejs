@@ -1,0 +1,128 @@
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="bg-gradient-to-br from-red-500 to-pink-600 p-2 rounded-xl group-hover:shadow-lg transition-all duration-200">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+      </div>
+      <h1 class="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent">
+        House
+      </h1>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="flex items-center gap-2">
+
+      <% if (isLoggedIn) { %>
+        <% if (user && user.userType && user.userType==="guest" ) { %>
+          <a href="/" 
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'index' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
+              Home
+            </span>
+          </a>
+
+          <a href="/favourites"
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'Favourites' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+              </svg>
+              Favourites
+            </span>
+          </a>
+
+          <a href="/bookings"
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'bookings' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+              </svg>
+              Bookings
+            </span>
+          </a>
+
+          <a href="/homes" 
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'Home' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+              </svg>
+              All Homes
+            </span>
+          </a>
+
+        <% } else { %>
+
+          <a href="/host/add-home"
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'AddHome' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+              Add Home
+            </span>
+          </a>
+
+          <a href="/host/host-home-list"
+             class="px-4 py-2 rounded-lg transition-all duration-200 <%= currentPage === 'host-homes' ? 'bg-red-50 text-red-600 font-semibold' : 'text-gray-700 hover:bg-gray-100' %>">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+              </svg>
+              My Listings
+            </span>
+          </a>
+        <% } %>
+
+        <!-- User Menu -->
+        <div class="flex items-center gap-3 ml-4 pl-4 border-l border-gray-200">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-md">
+              <%= user && user.firstName ? user.firstName.charAt(0).toUpperCase() : 'U' %>
+            </div>
+            <span class="text-sm font-medium text-gray-700 hidden md:block">
+              <%= user && user.firstName ? user.firstName : 'User' %>
+            </span>
+          </div>
+
+          <!-- Logout -->
+          <form action="/logout" method="POST" class="inline">
+            <button type="submit" class="px-4 py-2 rounded-lg text-gray-700 hover:bg-red-50 hover:text-red-600 transition-all duration-200 font-medium flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+              </svg>
+              Logout
+            </button>
+          </form>
+        </div>
+
+      <% } else { %>
+
+        <!-- Guest Navigation -->
+        <a href="/signup" 
+           class="px-5 py-2.5 rounded-xl border-2 border-red-500 text-red-600 font-semibold transition-all duration-200
+                  <%= currentPage === 'signup' ? 'bg-red-50 shadow-md' : 'hover:bg-red-50 hover:shadow-md' %>">
+          Sign Up
+        </a>
+
+        <a href="/login" 
+           class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold shadow-md
+                  transition-all duration-200 hover:shadow-lg hover:from-red-600 hover:to-pink-700
+                  <%= currentPage === 'login' ? 'shadow-lg' : '' %>">
+          Login
+        </a>
+
+      <% } %>
+
+    </nav>
+  </div>
+</header>

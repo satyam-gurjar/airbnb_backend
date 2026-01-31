@@ -1,0 +1,99 @@
+<%- include('../partials/head') %>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <!-- Header -->
+<%- include('../partials/nav') %>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center px-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+
+      <form
+        action="/host/<%= editing ? "edit-home" : "add-home"  %>"
+        method="POST"
+        class="space-y-6"
+      >
+        <!-- Input -->
+        <div>
+           <label class="block text-black  font-extrabold text-2xl text-center mb-3">
+            <%= editing ? "Edit" : "Register" %> Your Home on AirBnB
+          </label>
+          <input type="hidden" name="id" value="<%= editing ? home._id : '' %>"
+          class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+          <input
+            type="text"
+            name="house_name"
+            value="<%= editing ? home.house_name : '' %>"
+            placeholder="Enter the name of your house"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+            <input
+            type="text"
+            name="price"
+            value="<%= editing ? home.price : '' %>"
+            placeholder="Price per night"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+            <input
+            type="text"
+            name="location"
+            value="<%= editing ? home.location : '' %>"
+            placeholder="location"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+
+           <input
+            type="text"
+            name="Rating"
+            value="<%= editing ? home.Rating: '' %>"
+            placeholder="Rating"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+           <input
+            type="text"
+            name="PhotoUrl"
+            value="<%= editing ? home.PhotoUrl: '' %>"
+            placeholder="Enter Photo URL"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          />
+          
+          <textarea
+            type="text"
+            name="description"
+            placeholder="Describe your home"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2
+                   focus:outline-none m-1.5 focus:ring-2 focus:ring-red-400"
+          ><%= editing ? home.description: '' %></textarea>
+
+        </div>
+
+        <!-- Submit Button -->
+        <input
+          type="submit" value="<%= editing ? "Update Home " : "Add Home" %>"
+          class="w-full bg-red-500 text-white font-semibold py-3 rounded-lg
+         hover:bg-red-600 transition shadow-md"
+        />
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-4">
+    © 2026 Airbnb Clone
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<%- include('../partials/head') %>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+
+  <!-- Navbar -->
+  <%- include('../partials/nav') %>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+
+    <!-- Heading -->
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-bold text-red-500 mb-2">
+        Favourite Homes
+      </h2>
+    </div>
+
+    <!-- Homes Section -->
+    <% if (favouriteHomes.length === 0) { %>
+      <div class="text-center text-gray-500 text-lg">
+        No Favourite Homes 🏡 <br />
+         Add Homes Favourite
+      </div>
+    <% } else { %>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+        <% favouriteHomes.forEach(home => { %>
+
+          <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+
+            <!-- Image -->
+            <img 
+              src="<%= home.PhotoUrl %>" 
+              alt="<%= home.house_name %>" 
+              class="h-48 w-full object-cover"
+            />
+
+            <!-- Card Content -->
+            <div class="p-5">
+
+              <!-- Title & Rating -->
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold text-gray-800">
+                  <%= home.house_name %>
+                </h3>
+
+                <span class="flex items-center text-sm font-medium text-gray-700">
+                  ⭐ <%= home.Rating %>
+                </span>
+              </div>
+
+              <!-- Location -->
+              <p class="text-gray-500 text-sm mb-4">
+                📍 <%= home.location %>
+              </p>
+
+              <!-- Price & Button -->
+              <div class="flex justify-between items-center">
+                <p class="text-lg font-bold text-gray-900">
+                  ₹<%= home.price %>
+                  <span class="text-sm text-red-500">/ night</span>
+                </p>
+
+                <button
+                  class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm
+                         hover:bg-green-600 transition active:scale-95">
+                   Book
+                </button>
+
+                <form action="/favourites/delete/<%= home._id %>" method="POST">
+                  <button type="submit"  class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm
+                         hover:bg-red-600 transition active:scale-95">Remove</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center text-sm text-gray-500 py-6">
+    © 2026 Airbnb Clone • Built with Express & Tailwind CSS
+  </footer>
+
+</body>
+</html>
