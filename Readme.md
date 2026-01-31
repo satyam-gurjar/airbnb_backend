@@ -1,6 +1,6 @@
-# Airbnb Backend Clone 🏠
+# House Selling Buying 🏠
 
-A backend-focused Airbnb clone built using **Node.js**, **Express.js**, **EJS**, and **Tailwind CSS**.  
+A backend built using **Node.js**, **Express.js**, **EJS**, and **Tailwind CSS**.  
 This project demonstrates **MVC architecture**, server-side rendering, and file-based data handling, making it ideal for learning and portfolio use.
 
 ---
@@ -32,7 +32,7 @@ This project demonstrates **MVC architecture**, server-side rendering, and file-
 
 ## 📁 Project Structure
 
-AIRBNB/
+House/
 │
 ├── controller/
 │   ├── hostController.js
@@ -70,8 +70,9 @@ AIRBNB/
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/satyam-gurjar/airbnb_backend.git
-cd airbnb_backend
+
  ```
+## goto in  House folder
 ## Install dependencies
 ```bash
 npm install
